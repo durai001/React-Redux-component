@@ -10,7 +10,7 @@ class loginComponent extends Component {
     constructor(props: any) {
         super(props);
         this.state = {
-            user: {mail:"",password:""}
+            user: { mail: "", password: "" }
         }
     }
     login = (e: any) => {
@@ -18,8 +18,8 @@ class loginComponent extends Component {
             position: toast.POSITION.TOP_RIGHT
         });
     }
-    handleChange=(e:any)=>{
-     }
+    handleChange = (e: any) => {
+    }
     render() {
         return (
             <div className="container mt-5">
@@ -39,19 +39,18 @@ class loginComponent extends Component {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className="far fa-user"></i></span>
                                     </div>
-                                    <input type="text" className="form-control"   placeholder="username" />
+                                    <input type="text" className="form-control" placeholder="username" />
 
                                 </div>
                                 <div className="input-group form-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                                     </div>
-                                     <input type="password" className="form-control"   placeholder="password" />
+                                    <input type="password" className="form-control" placeholder="password" />
                                 </div>
                                 <div className="row align-items-center remember">
                                     <input type="checkbox" />Remember Me
 					</div>
-
                             </form>
                             <div className="form-group">
                                 <button className="btn float-right login_btn" onClick={(e) => this.login(e)}> Login </button>
