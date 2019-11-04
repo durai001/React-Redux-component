@@ -1,26 +1,48 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import * as loginAction from "../actions/auth.action";
 import 'react-toastify/dist/ReactToastify.css';
 
 // import loginImg from '../assets/images/login.jpg'
 
+type MyProps = {login:any};
+type MyState = { loginObj: object };
 
-class loginComponent extends Component {
-    constructor(props: any) {
+class loginComponent extends Component<MyProps, MyState> {
+    constructor(props: MyProps) {
         super(props);
-        this.state = {
-            user: { mail: "", password: "" }
-        }
+        this.state = ({
+            loginObj: {}
+        })
     }
     login = (e: any) => {
-        toast.success("Logged In Successfully", {
-            position: toast.POSITION.TOP_RIGHT
-        });
+        this.props.login(this.state.loginObj).then((res:any)=>{
+            console.log(res)
+            if(res&&res.payload&&res.payload.status===200){
+                toast.success("Logged In Successfully", {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            }else{
+                toast.error("Something Went Wrong", {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            }
+            
+        })
+       
     }
     handleChange = (e: any) => {
+
+        // let user = { ...this.state }
     }
+    componentWillReceiveProps(nextProps: any) {
+        console.log(nextProps)
+    }
+
     render() {
+        let loginObj: any = this.state.loginObj
+        // let users=this.state['user']
         return (
             <div className="container mt-5">
                 <div className="d-flex justify-content-center h-100">
@@ -37,20 +59,21 @@ class loginComponent extends Component {
                             <form>
                                 <div className="input-group form-group">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="far fa-user"></i></span>
+                                        <span className="input-group-text"> <i className="fas fa-envelope-square"></i></span>
                                     </div>
-                                    <input type="text" className="form-control" placeholder="username" />
+                                    <input type="text" className="form-control" value={loginObj.mail} onChange={e => { this.setState({ loginObj: { ...loginObj, mail: e.target.value } }) }} placeholder="email" />
 
                                 </div>
                                 <div className="input-group form-group">
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i className="fas fa-key"></i></span>
                                     </div>
-                                    <input type="password" className="form-control" placeholder="password" />
+                                    <input type="password" className="form-control" value={loginObj.password} onChange={e => { this.setState({ loginObj: { ...loginObj, password: e.target.value } }) }} placeholder="password" />
                                 </div>
                                 <div className="row align-items-center remember">
                                     <input type="checkbox" />Remember Me
 					</div>
+
                             </form>
                             <div className="form-group">
                                 <button className="btn float-right login_btn" onClick={(e) => this.login(e)}> Login </button>
@@ -72,15 +95,15 @@ class loginComponent extends Component {
     }
 }
 
-function mapStateToProps(state: object) {
+function mapStateToProps(state: any) {
     return {
-
+        auth: state.auth
     };
 }
 
 function mapDispatchToProps(dispatch: any) {
-    return {
-
+     return {
+         login:(loginobj:object)=>{return dispatch(loginAction.login(loginobj))},
     };
 }
 
