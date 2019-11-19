@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import * as loginAction from "../actions/auth.action";
+import { withRouter } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import '../scss-styles/pages/login.scss'
 
-// import loginImg from '../assets/images/login.jpg'
 
-type MyProps = {login:any};
+type MyProps = { login: any, history: { push: any } };
 type MyState = { loginObj: object };
 
 class loginComponent extends Component<MyProps, MyState> {
@@ -17,20 +18,22 @@ class loginComponent extends Component<MyProps, MyState> {
         })
     }
     login = (e: any) => {
-        this.props.login(this.state.loginObj).then((res:any)=>{
+        e.preventDefault();
+        this.props.login(this.state.loginObj).then((res: any) => {
             console.log(res)
-            if(res&&res.payload&&res.payload.status===200){
+            if (res && res.payload && res.payload.status === 200) {
                 toast.success("Logged In Successfully", {
                     position: toast.POSITION.TOP_RIGHT
                 });
-            }else{
+            } else {
+                this.props.history.push('/home')
                 toast.error("Something Went Wrong", {
                     position: toast.POSITION.TOP_RIGHT
                 });
             }
-            
+
         })
-       
+
     }
     handleChange = (e: any) => {
 
@@ -42,53 +45,25 @@ class loginComponent extends Component<MyProps, MyState> {
 
     render() {
         let loginObj: any = this.state.loginObj
-        // let users=this.state['user']
         return (
-            <div className="container mt-5">
-                <div className="d-flex justify-content-center h-100">
-                    <div className="card">
-                        <div className="card-header">
-                            <h3 className="mt-3">Sign In</h3>
-                            <div className="d-flex justify-content-end social_icon">
-                                <span><i className="fab fa-facebook-square"></i></span>
-                                <span><i className="fab fa-google-plus-square"></i></span>
-                                <span><i className="fab fa-twitter-square"></i></span>
-                            </div>
-                        </div>
-                        <div className="card-body">
-                            <form>
-                                <div className="input-group form-group">
-                                    <div className="input-group-prepend">
-                                        <span className="input-group-text"> <i className="fas fa-envelope-square"></i></span>
-                                    </div>
-                                    <input type="text" className="form-control" value={loginObj.mail} onChange={e => { this.setState({ loginObj: { ...loginObj, mail: e.target.value } }) }} placeholder="email" />
-
-                                </div>
-                                <div className="input-group form-group">
-                                    <div className="input-group-prepend">
-                                        <span className="input-group-text"><i className="fas fa-key"></i></span>
-                                    </div>
-                                    <input type="password" className="form-control" value={loginObj.password} onChange={e => { this.setState({ loginObj: { ...loginObj, password: e.target.value } }) }} placeholder="password" />
-                                </div>
-                                <div className="row align-items-center remember">
-                                    <input type="checkbox" />Remember Me
-					</div>
-
-                            </form>
-                            <div className="form-group">
-                                <button className="btn float-right login_btn" onClick={(e) => this.login(e)}> Login </button>
-                            </div>
-                        </div>
-                        <div className="card-footer">
-                            <div className="d-flex justify-content-center links">
-                                Don't have an account?<span className="text-primary c-pointer" >Sign Up</span>
-                            </div>
-                            <div className="d-flex justify-content-center">
-                                <span className="text-primary c-pointer" >Forgot your password?</span>
-                            </div>
-                        </div>
+            <div className="login">
+                <form className="login-form" action="#">
+                    <div className="input-group input-group-lg">
+                        <div className="input-group-addon"><span className="fa fa-lg fa-envelope mt-3" /></div>
+                        <input type="email" className="form-control" id="user-name" placeholder="Email" required />
                     </div>
-                </div>
+                    <div className="input-group input-group-lg">
+                        <div className="input-group-addon"><span className="fa fa-lg fa-key mt-3" /></div>
+                        <input type="password" className="form-control" id="password" placeholder="Password" required  />
+                    </div>
+                    <input type="submit" id="login" className="btn btn-primary fa-lg" value="Sign in" onClick={e => this.login(e)} />
+                    <span className="text-primary c-pointer" onClick={e=>{this.props.history.push('/sign-up')}}>Sing-Up</span>
+                    <div className="login-bar">
+                        <input type="checkbox" id="stay-signed-in" tabIndex={4} />
+                        <label htmlFor="stay-signed-in">Keep me signed in</label>
+                        <a href="#" className="pull-right">Forgotten your password?</a>
+                    </div>
+                </form>
                 <ToastContainer />
             </div>
         );
@@ -102,9 +77,9 @@ function mapStateToProps(state: any) {
 }
 
 function mapDispatchToProps(dispatch: any) {
-     return {
-         login:(loginobj:object)=>{return dispatch(loginAction.login(loginobj))},
+    return {
+        login: (loginobj: object) => { return dispatch(loginAction.login(loginobj)) },
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(loginComponent);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(loginComponent));

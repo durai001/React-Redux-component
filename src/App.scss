@@ -1,29 +1,25 @@
-@import './scss-styles/root.scss'; 
+@import './scss-styles/custom.scss'; 
+// https://codepen.io/Kamilica/pen/XRbvaL
 
-
-
-.App {
-  text-align: center;
+::-webkit-scrollbar {
+  width: 0px;  
+  background: transparent;  
 }
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  min-height: 100vh;
-  // display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 1vmin);
-  color: white;
- 
-}
-
-.App-link {
-  color: #09d3ac;
-}
-.c-pointer{
-cursor: pointer;
-}
+ .home{
+  position: absolute;
+  width: 50%;
+  left: 30%;
+  top: 13%;
+ }
+ .c-pointer{
+ cursor: pointer;
+ }
+ .card{
+  position: absolute;
+  width: 50%;
+  left: 30%;
+  top: 13%;
+ }
+ .c-pointer{
+ cursor: pointer;
+ }
