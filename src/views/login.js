@@ -63,6 +63,8 @@ class Login extends Component {
                             <span> COMPONENT - LOGIN</span>
                         </div>
                     </CardTitle>
+
+                    
                     <CardBody>
                         <form className="was-validated " onSubmit={e => this.login(e)}>
                             <div >
@@ -84,7 +86,7 @@ class Login extends Component {
 
                     </CardBody>
                         <div className=" text-center fs13 mb-3">
-                            Copy Rights 2020
+                            Copy Rights 2020 - Type any username and password to login
                         </div>
                 </Card>
             </div>
