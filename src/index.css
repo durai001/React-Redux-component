@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family:inherit;
+  /* identical to box height, or 120% */
+  color: #3B3B3B;
+  background-color: #e4eafb91;
+}
+
+ 

@@ -1,89 +1,65 @@
-import React, { Component }  from 'react';
-import {  Router, Route, Switch } from 'react-router-dom';
-import Login from './login/login';
-import ForgotPassword from './forgot-password/forgot-password';
-import ResetPassword from './reset-password/reset-password';
-import { Provider} from "react-redux";
-import store from "./store";
-import './App.scss';
-import Dashboard from './components/dashboard'
- import Layout from './layout/layout';
-import ChangePassword from './change-password/change-password';
-import Admin from './components/admin';
-import Profile from './components/profile';
-import {history} from './_helpers/history'
+import React, { Component } from 'react';
+import { Router, Route, Switch } from "react-router-dom";
 
-require('dotenv').config()
+import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import { createBrowserHistory } from 'history';
+import store from './store/store';
+import './App.css';
+import Layout from './layouts/index';
+
+import UserProfile from "./views/UserProfile.js";
+import UserDetails from './views/userDetails.js';
+import Login from './views/login.js';
 
 
-// const App = () => (
-  class App extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-          showMenu: false
-      };
-      this.stateChange = this.stateChange;
+const history = createBrowserHistory();
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      routes: [],
+      array: [1, 2, 3, 4, 5]
+    }
   }
 
-  stateChange = (showMenu) => {
-      this.setState({
-          showMenu: showMenu
-      });
-  };
   render() {
+
     return (
-  <Provider store={store}>
-  <Router  history={history}>
-    <div>
-      <main>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/forgot-password" component={ForgotPassword} />
-          <Route path="/reset-password" component={ResetPassword} /> 
- 
-           <Route exact={true} path='/dashboard' render={() => (
-              <div>
-                  <Layout stateChange={this.stateChange} />
-                  <div className={'pt67 pr-2 ' + (this.state.showMenu ? 'sidebaropen' : 'sidebarclosed')}>
-                      <Dashboard history={history} showMenu={this.state.showMenu} />
-                      
+      <Provider store={store}>
+        <Router history={history} exact path="/">
+          <main className="h-100">
+            <Switch>
+
+              <Route exact={true} path="/user-profile" render={() => (
+                <>
+                  <Layout page={"User Profile"}/>
+                  <div className="main" >
+                    <UserProfile />
                   </div>
-              </div>
-          )} />   
-        
-          <Route exact={true} path='/change-password' render={() => (
-              <div>
-                  <Layout stateChange={this.stateChange} />
-                  <div className={'pt67 pr-2 ' + (this.state.showMenu ? 'sidebaropen' : 'sidebarclosed')}>
-                      <ChangePassword history={history} showMenu={this.state.showMenu} />
+                </>
+              )}
+              />
+
+              <Route exact={true} path="/userDetails" render={() => (
+                <>
+                  <Layout page={"User Details"}/>
+                  <div className="main" >
+                    <UserDetails />
                   </div>
-              </div>
-          )} /> 
-          <Route exact={true} path='/admin' render={() => (
-              <div>
-                  <Layout stateChange={this.stateChange} />
-                  <div className={'pt67 pr-2 ' + (this.state.showMenu ? 'sidebaropen' : 'sidebarclosed')}>
-                      <Admin showMenu={this.state.showMenu} />
-                  </div>
-              </div>
-          )} />  
-          
-          <Route exact={true} path='/profile' render={() => (
-              <div>
-                  <Layout stateChange={this.stateChange} />
-                  <div className={'pt67 pr-2 ' + (this.state.showMenu ? 'sidebaropen' : 'sidebarclosed')}>
-                      <Profile history={history} showMenu={this.state.showMenu} />
-                  </div>
-              </div>
-          )} />  
-        </Switch>
-      </main>
-    </div>
-  </Router>
-  </Provider>
-);
-          }
-        }
+                </>
+              )}
+              />
+
+              <Route exact={true} component={Login} />
+            </Switch>
+            <ToastContainer />
+          </main>
+        </Router>
+      </Provider>
+    );
+  }
+}
 
 export default App;

@@ -1,0 +1,504 @@
+ 
+
+.light-theme {
+
+    height: 24px;
+    left: 580px;
+    top: 267px;
+
+    font-family: calibri;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.upload-icon {
+    width: 50px;
+    height: 50px;
+    /* background: url(../images/upload.png) no-repeat center center;  */
+    background-size: 100%;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+
+.drop-message {
+    text-align: center;
+    color: #4aa1f3;
+    font-family: Arial;
+    font-size: 20px;
+}
+
+.drop-container {
+    height: 342px;
+    border: 2px dashed #7E7E7E;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.profile-content {
+    margin-top: 20px;
+}
+
+.name-profileImage {
+    height: 40px;
+    width: 45px;
+    border-radius: 50%;
+    background: #0069d9;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    font-size: 20px;
+    left: -8px;
+    margin: 0px;
+    display: inline-block;
+}
+.job-task-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90%;
+}
+
+.job-list-card{
+   
+    height: 90%;
+    overflow-y: scroll ;
+}
+
+.job-task-card button{
+    margin-left: 20px;
+    width: 200px;
+}   
+
+.assessment-ul li{
+    list-style-type: none;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+
+}
+ 
+.job-filter{
+    width:200px;
+    height: 30px;
+    background-color: #F9F9F9 !important;   
+    color: #6c757d !important;
+}
+.filter-search{
+    height: 30px;   
+}
+.filter-btn{
+    height: 40px;  
+}
+
+.table-header{
+    font-size: 27px;
+    font-weight: 700
+}
+
+.table-data{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.btn-table{
+    background-color: #ffffff;
+}
+
+.margin5{
+    margin:5px;
+}
+.card-chart{
+    height: 400px;
+    font-family: sans-serif;
+}
+.card-small{
+    width: 40%;
+    margin-left: 30%;
+    max-height: 600px;
+}
+.card-large{
+    width: 80%;
+    margin-left: 10%;
+}
+.textdanger{
+    color:red
+}
+.textwarning{
+    color:yellow
+}
+.textsuccess{
+    color:green
+}
+.textinfo{
+    color: #5bc0de
+}
+.textprimary{
+    color: #0275d8
+}
+.bgprimary{
+    background-color:#0275d8;
+}
+.textdark{
+    color:#292b2c
+}
+.disableDiv{
+    pointer-events: none;
+}
+
+.Pacloader{
+    position: fixed;
+    z-Index:100;
+    margin-top: 15%;
+    margin-left: 45%;
+   }
+.loaderBody{
+    position: fixed; 
+    z-index: 20; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4);
+    transition: 1s;
+}
+.dropzone-container{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    border:4px dashed green;
+    transition: 0.2s;
+}
+.dropzone-container:hover{
+    border:4px dashed red;
+    cursor: pointer;
+}
+.dropzone-icon{
+    margin-top: 30%;
+    margin-left: 50%;
+}
+
+.profile-image-container{
+    display: flex;
+    justify-content: center;
+}
+.profile_image{
+    max-height:315px;
+    max-width:400px;
+    overflow: auto;
+    padding: 5px;
+}
+
+.assessment-result{
+    max-height: 330px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-size: 15px;
+}
+.assessment-angles{
+    padding: 2%;
+    max-width: 100%;
+}
+.assessment-angles-header {
+    padding:10px;
+    font-weight: bold;
+
+}
+.image-preview{
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    overflow-y: auto;
+    overflow-x:hidden;
+
+}
+.upload-preview-image{
+    max-height:255px;
+    max-width:400px
+}
+.angle_image{
+    max-width: 400px;
+    max-height: 350px;
+    justify-content: center;
+    display: flex;
+   
+}
+.assessment_popup{
+    overflow:auto;
+    height:320px;
+}
+
+.nav-tabs{
+    background-color: white !important;
+    color:black;
+    font-size:16px;
+    font-weight: bold;
+    align-items: center;
+  
+}
+.tab-active{ 
+    transition: 0.3s;
+    color: white !important;
+    background-color: #0275d8;
+}
+.tab-pane{
+    width: 100%;
+    background-color: white;
+    padding: 2%;
+   
+}
+.tab-home{
+    display: flex;
+    justify-content: center;
+}
+.tab-card{
+    box-shadow: 0 0 8px grey;
+    border-radius: 4px;
+
+}
+
+.progress-sm{
+    width:100px;
+    height:12px;
+    
+}
+.progress-bar-primary{
+    background-color:#5bc0de;
+    color: black;
+}
+.flex{
+    width:100%;
+    
+}
+.assesment-data-container{
+    box-shadow: 0 0 7px grey;
+    font-size: 15px;
+    margin-top: -15px;
+
+}
+.assesment-data-header{
+    padding: 5%;
+    margin-top: 3%;
+    color:white;
+}
+.assessment-data-image{
+    margin-top: 40%;
+
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    border-radius: 34px;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: whitesmoke;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    border-radius: 50%;
+    content: "";
+    height: 16px;
+    width: 15px;
+    left: 1px;
+    
+    bottom: 3px;
+   background-color: red;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+    background-color: blue;
+  }
+  
+  .rula_head{
+      color: white;
+      padding: 2%;
+  }
+  .rula_body{
+      margin-left: 4%;
+  }
+  .pdf-button{
+    position:absolute;
+    right:2%;
+    color:white;
+    margin-top:-1%;
+    font-size:18px;
+  }
+  .fa-rotate-60{
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      transform: rotate(45deg);
+  }
+  .fa-rotate-n60{
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.title{
+    font-size:16px;
+    font-weight:bold;
+    color: #828692;
+}
+.management-table{
+    width:100%;
+    min-width: 500px;
+    overflow-y: auto;
+    margin-left: 20px;
+    
+}
+.card-form{
+   background-color: white;
+   padding: 10px;
+   /* height:85% ; */
+   max-height: 85%;
+   width:50%;
+   margin-left: 25%;
+   border-radius: 10px !important;
+}
+.card-form .card-body{
+    overflow: auto;
+    max-height: 80%;
+ }
+.key-head{
+    margin-top: 20px;
+    font-weight: bold;
+}
+.key-line{
+    height: 5px;
+}
+.rosa-image{
+    height:100px;
+    width:100px;
+   
+}
+.rosa-method-input{
+    margin-top: 5px;
+    width:80%;
+    margin: 10px;
+}
+.bg-duration{
+    background-color: #DFE6FF;
+}
+.bg-score{
+    background-color: #D5CDFF;
+}
+.bg-rosa{
+    background-color: #0275d8;
+}
+.h10{
+    font-size: 10px;
+}
+.rosa_head{
+    padding: 1%;
+    color:white;
+    font-weight: bold;
+
+
+}
+.final-method-input{
+    width: 100%;
+
+    font-weight: bold;
+}
+.final-method{
+    height:50px;
+    font-size: 25px !important;
+}
+.btn-tab{
+   padding:10px;
+   font-weight: bold;
+ 
+}
+.bg-lightblue{
+    background-color: #D5CDFF;
+}
+.bg-pink{
+    background-color: #FFDADF;
+}
+.rosa-col{
+    padding: 10px;
+    font-size: 16px;
+}
+
+.rosa-list{
+    list-style-type: none;
+}
+
+.border-rosa{
+    border:2px solid red;
+}
+
+.checkbox{
+    border:1px solid black;
+    height:15px;
+    width:15px;
+}
+
+.checked{
+    background-color: blue;
+}
+.assessment-table{
+    min-width:500px ;
+    overflow: auto;
+}
+ 
+ 
+.btn {
+    /* color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc; */
+
+}
+
+
+.btn:hover {
+    /* color: black;
+    background-color: #0f66e8;
+    border-color: #013469; */
+}
+
+ 
